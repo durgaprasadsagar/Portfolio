@@ -1,3 +1,29 @@
+@import url('https://fonts.googlepis.com/css2?family=Open+sans:ital,wght@0,300;0,400;0,500;0,600;0,700;,0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+:root{
+    --background-color: #fbfbfb;
+    --green-background-color:#153e52;
+    --dark-green-color: #113448;
+    --light-green-color: #14bf98;
+    --dark-grey-color: #484a48;
+    --light-grey-color: #787976;
+    --white-color: #ffffff;
+    --disabled-color: #e9ecef;
+    --dark-white-color: #dfe5ec;
+    --light-grey-border-color:#ebe8e8;
+    --form-input-background-color:#2a5d77;
+    --form-input-border-color: #39728f;
+
+
+
+    --image-contrast: 60%;
+    --image-grayscale: 25%;
+}
+
+
+
+
 body {
     font-family: 'Arial', sans-serif;
     color: #333;
@@ -132,6 +158,27 @@ header nav ul li a {
     font-weight: bold;
     color: #6a4ef3;
 }
+.skills .skill-container .progress-bar{
+    height: 1.5rem;
+    background-color: var(--light-green-color);
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    width: 0;
+
+}
+.skills .skill-container .progress-bar.p-90{
+    width: 90%;
+}
+.skills .skill-container .progress-bar.p-80{
+    width: 80%;
+}
+.skills .skill-container .progress-bar.p-70{
+    width: 70%;
+}
+.skills .skill-container .progress-bar.p-85{
+    width: 85%;
+}
+
 
 
 .qualification {
@@ -388,8 +435,9 @@ form button {
 }
 
 
+
 /* Mobile Styles */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     /* Header */
     header nav ul {
         display: none;
