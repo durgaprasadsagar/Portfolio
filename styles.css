@@ -388,17 +388,92 @@ form button {
 }
 
 
+/* Mobile Styles */
 @media (max-width: 768px) {
-    nav ul {
+    /* Header */
+    header nav ul {
         display: none;
         flex-direction: column;
+        width: 100%;
     }
-    
-    nav ul.open {
+
+    header nav ul.open {
         display: flex;
     }
-    
+
     .nav-toggle {
         display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    /* Hero Section */
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .hero .btn {
+        padding: 8px 16px;
+        font-size: 1em;
+    }
+
+    /* About Section */
+    .about ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .about ul li {
+        margin: 10px 0;
+    }
+
+    /* Skills Section */
+    .skills .skill-container {
+        text-align: center;
+    }
+
+    /* Qualification Section */
+    .qualification-container {
+        flex-direction: column;
+    }
+
+    .qualification-item {
+        width: 100%;
+    }
+
+    /* Services Section */
+    .services-container {
+        flex-direction: column;
+    }
+
+    .service-item {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    /* Projects Section */
+    .projects-container {
+        flex-direction: column;
+    }
+
+    .projects-item {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    /* Footer */
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-about, .footer-links, .footer-social {
+        width: 100%;
+        margin: 10px 0;
     }
 }
