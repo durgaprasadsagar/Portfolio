@@ -207,8 +207,10 @@ header nav ul li a {
 }
 
 .service-item img {
-    max-width: 200px ;
-    margin-bottom: 1px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .service-item h3 {
