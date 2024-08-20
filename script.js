@@ -1,64 +1,62 @@
-// Smooth Scrolling
+// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
     });
 });
 
-// Form Validation
-const form = document.querySelector('form');
-const nameInput = document.querySelector('input[type="text"]');
-const emailInput = document.querySelector('input[type="email"]');
-const messageInput = document.querySelector('textarea');
+// Typing effect in the hero section
+const typingText = "Hi, I’m Durga Prasad Vaddepalli";
+let index = 0;
+const speed = 100;
 
-form.addEventListener('submit', function(e) {
-    let valid = true;
-    
-    // Name Validation
-    if (nameInput.value.trim() === '') {
-        alert('Please enter your name.');
-        valid = false;
+function type() {
+    if (index < typingText.length) {
+        document.querySelector('.intro h1').textContent += typingText.charAt(index);
+        index++;
+        setTimeout(type, speed);
     }
-    
-    // Email Validation
-    if (emailInput.value.trim() === '') {
-        alert('Please enter your email.');
-        valid = false;
-    } else if (!validateEmail(emailInput.value.trim())) {
-        alert('Please enter a valid email address.');
-        valid = false;
-    }
-    
-    // Message Validation
-    if (messageInput.value.trim() === '') {
-        alert('Please enter your message.');
-        valid = false;
-    }
-    
-    if (!valid) {
-        e.preventDefault();
-    }
-});
-
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
 }
 
+window.onload = function() {
+    type();
 
+    // Form validation
+    document.querySelector('form').addEventListener('submit', function(e) {
+        const name = document.querySelector('input[placeholder="Name"]').value.trim();
+        const email = document.querySelector('input[placeholder="Email"]').value.trim();
+        const message = document.querySelector('textarea[placeholder="Message"]').value.trim();
 
+        if (!name || !email || !message) {
+            e.preventDefault();
+            alert('Please fill out all fields.');
+        } else {
+            alert('Message sent successfully!');
+        }
+    });
 
-// Mobile Navigation Toggle (optional)
-const nav = document.querySelector('nav ul');
-const toggleButton = document.createElement('button');
-toggleButton.textContent = 'Menu';
-toggleButton.classList.add('nav-toggle');
-document.querySelector('header').prepend(toggleButton);
+    // Highlight active navigation link
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section');
+        const navLi = document.querySelectorAll('nav ul li a');
 
-toggleButton.addEventListener('click', () => {
-    nav.classList.toggle('open');
-});
+        let current = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 60) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLi.forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('href').includes(current)) {
+                a.classList.add('active');
+            }
+        });
+    });
+};
