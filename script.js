@@ -21,6 +21,26 @@ function type() {
     }
 }
 
+// Toggle Dark Mode
+    function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+        const mode = document.body.classList.contains("dark-mode") ? "🌞 Light Mode" : "🌙 Dark Mode";
+        darkModeBtn.innerText = mode;
+        localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+    }
+
+    // Check Local Storage for Dark Mode
+    if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark-mode");
+        darkModeBtn.innerText = "🌞 Light Mode";
+    }
+
+    // Event Listeners
+    revealSections();
+    window.addEventListener("scroll", revealSections);
+    window.toggleDarkMode = toggleDarkMode;
+
+
 window.onload = function() {
     type();
 
